@@ -7,28 +7,43 @@
     </head>
     <body>
         <h1>Clientes</h1>
-        <br>
-        {{ $clientes }}
+
+        <a href="{{route('cliente.create') }}">Agregar</a>
         <br>
         <br>
         <table border ="1">
             <thead>
                 <tr>
+                    <th>#</th>
                     <th>nombres</th>
                     <th>pri_ape</th>
                     <th>seg_ape</th>
                     <th>tipo_doc</th>
                     <th>docu-tip</th>
+                    <th>telefono</th>
+                    <th>direccion</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+
                 </tr>
             </thead>
             <tbody>
-                @foreach ($clientes as $cliente)
+                @foreach ($clientes as $key => $cliente)
                 <tr>
+                    <td>{{ $key+1}}</td>
                     <td>{{ $cliente->nombres }}</td>
                     <td>{{ $cliente->pri_ape }}</td>
                     <td>{{ $cliente->seg_ape }}</td>
                     <td>{{ $cliente->docu_tip }}</td>
                     <td>{{ $cliente->docu_num }}</td>
+                    <td>{{ $cliente->telefono }}</td>
+                    <td>{{ $cliente->direccion }}</td>
+                    <td>
+                        <a href="{{route('cliente.edit', $cliente->id)}}">Editar</a>
+                    </td>
+                    <td>
+                        <a href="{{route('cliente.delete', $cliente->id)}}">Eliminar</a>
+                    </td>
                 </tr>
                  @endforeach
             </tbody>
