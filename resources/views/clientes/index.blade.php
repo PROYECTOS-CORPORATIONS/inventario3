@@ -4,14 +4,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Clientes</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     </head>
     <body>
         <h1>Clientes</h1>
 
-        <a href="{{route('cliente.create') }}">Agregar</a>
+        <a href="{{route('cliente.create') }}" class="btn btn-secondary">Agregar</a>
         <br>
         <br>
-        <table border ="1">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>#</th>
@@ -39,10 +40,10 @@
                     <td>{{ $cliente->telefono }}</td>
                     <td>{{ $cliente->direccion }}</td>
                     <td>
-                        <a href="{{route('cliente.edit', $cliente->id)}}">Editar</a>
+                        <a href="{{route('cliente.edit', $cliente->id)}}" class="btn btn-outline-primary">Editar</a>
                     </td>
                     <td>
-                        <a href="{{route('cliente.delete', $cliente->id)}}">Eliminar</a>
+                        <a href="{{route('cliente.delete', $cliente->id)}}" class="btn btn-outline-danger">Eliminar</a>
                     </td>
                 </tr>
                  @endforeach

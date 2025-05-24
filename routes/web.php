@@ -1,8 +1,9 @@
 <?php
 
-use App\Models\Cliente;
-use App\Models\Producto;
+
+use App\Models\{Cliente,Categoria,Producto};
 use App\Http\Controllers\Cliente\ClienteController;
+use App\Http\Controllers\Categoria\CategortiaController;
 use App\Http\Controllers\Protucto\ProductoController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,19 @@ Route::get('/', function () {
     ]);
     return $producto->nombre." ".$producto->marca;*/
 
+
+    /*$categoria = Categoria::create([
+    'nombre' => 'HOGAR',
+    'descripcion' => 'Categoria Hogar',
+    ]);
+
+    $categoria->productos()->create([
+        'codigo' => '200',
+        'nombre' => 'Muebles',
+        'descripcion' => 'Hermoso muebles',
+    ]);
+    return $categoria;*/
+
     return view('welcome');
 
 });
@@ -48,3 +62,13 @@ Route::post('/cliente/destroy', [ClienteController::class, 'destroy'])->name('cl
 
 //rutas de productos
 Route::get('/producto/index', [ProductoController::class, 'index'])->name('producto.index');
+
+
+//rutas de categorias
+Route::get('/categoria/index', [CategortiaController::class, 'index'])->name('categoria.index');
+Route::get('/categoria/create', [CategortiaController::class, 'create'])->name('categorias.create');
+Route::post('/categoria/store', [CategortiaController::class, 'store'])->name('categorias.store');
+Route::get('/categoria/edit/{id}', [CategortiaController::class, 'edit'])->name('categoria.edit');
+Route::post('/categoria/update', [CategortiaController::class, 'update'])->name('categoria.update');
+Route::get('/categoria/delete/{id}', [CategortiaController::class, 'delete'])->name('categoria.delete');
+Route::post('/categoria/destroy', [CategortiaController::class, 'destroy'])->name('categoria.destroy');

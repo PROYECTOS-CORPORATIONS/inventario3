@@ -15,5 +15,9 @@
         <h3>
             <a href="{{route('producto.index')}}">Productos</a>
         </h3>
+        <br>
+        <h3>
+            <a href="{{route('categoria.index')}}">Categoria</a>
+        </h3>
     </body>
 </html>
